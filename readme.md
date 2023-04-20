@@ -1,3 +1,5 @@
+Wanna use CHAT-GPT to filter the most important news of media outlets, use the RSS of the sites to take the news and let CHAT-GPT make the magic for you
+
 ### 1. Configuring the Environment
 first configure your ".env" with this informations: 
 
