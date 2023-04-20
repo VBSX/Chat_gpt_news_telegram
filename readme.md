@@ -1,16 +1,19 @@
-### Configuração do ambiente
+### 1. Configuring the Environment
+first configure your ".env" with this informations: 
 
-Primeiro configure o seu ".env" com estas informações: <br>
-GPT_API_KEY = Your Api key of Chat GPT(Open AI)
+* GPT_API_KEY = Your Api key of Chat GPT(Open AI)
 
-TELEGRAM_BOT_KEY = Your Api Key for your telegram Bot
+* TELEGRAM_BOT_KEY = Your Api Key for your telegram Bot
 
-TELEGRAM_CHANNEL = Your telegram channel tag like: @Your_channel_or_group_name
+* TELEGRAM_CHANNEL = Your telegram channel tag like: @Your_channel_or_group_name
 
 
-CUTTLY_API_KEY = your API Key of cuttly 
+* CUTTLY_API_KEY = your API Key of cuttly 
 
-Run:
+After this 
+in your prompt run:
+
+```
 pip install -r requirements.txt
-
-exec main.py
+```
+To start exec main.py

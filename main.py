@@ -12,5 +12,6 @@ def sendmessage(channel_name, text):
     })
     return response
 
+telegram = os.getenv('TELEGRAM_CHANNEL')
 newsgpt = OpenGptChat().resumo()
-print(sendmessage('@smartedge_news',newsgpt))
+print(sendmessage(telegram,newsgpt))
