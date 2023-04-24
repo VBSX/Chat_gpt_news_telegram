@@ -2,7 +2,6 @@ import requests
 from rss_parser import Parser
 from dotenv import load_dotenv
 import os
-from time import sleep
 
 class GetAllNewsRss():
     def __init__(self, url):
@@ -18,19 +17,23 @@ class GetAllNewsRss():
         return feed.feed
     
     def get_only_title(self):
-        parser = Parser(xml=self.response.content, limit=1)
+        parser = Parser(xml=self.response.content, limit=5)
         feed = parser.parse()
         return [f'{item.title} / link: {self.link_shortener(item.link)}' for item in feed.feed]
 
     def link_shortener(self, url):
-        api_url = f"https://cutt.ly/api/api.php?key={self.api_key}&short={url}"
-        response = requests.get(api_url)
-        # sleep(20)
+        # Aqui é utilizado a API do encurtador.dev, onde podemos encurtar os links de 
+        # maneira gratuita e muito rapida
+        headers = {
+            'content-type': 'application/json',
+        }
+        json_data = {
+            'url': url,
+        }
+        response = requests.post('https://api.encurtador.dev/encurtamentos', headers=headers, json=json_data)
         try:
             data = response.json()
-            data_url = data["url"]
-            shortened_url = data_url["shortLink"]
-            return  shortened_url
+            return data['urlEncurtada']   
         except requests.exceptions.JSONDecodeError as er:
             print(er)
 if __name__ == '__main__':

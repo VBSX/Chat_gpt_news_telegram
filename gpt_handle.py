@@ -18,7 +18,7 @@ class OpenGptChat():
         self.engine = 'text-davinci-003'
         self.prompt = f'com base nessa lista que estou te dando agora {self.all_news} \ncoloque em topicos as noticias mais importantes e as que mais impactaram o dia (coloque o link junto com a sua espectiva noticia)'
         ' filtre as informações, por exemplo textos falando sobre o o veiculo de midia(Como g1, ou tv gazeta, ou uol) foque'
-        'somente na noticia'
+        'somente na noticia, pule uma linha a cada nova noticia'
         self.temperature = 0.5
         self.max_tokens = 2048
         self.top_p = 1
